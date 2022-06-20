@@ -6,7 +6,7 @@ const dateElement = document.getElementById("date");
 const list = document.getElementById("list");
 const input = document.getElementById("input");
 
-// Classes names
+// Class names
 const CHECK = "fa-check-circle";
 const UNCHECK = "fa-circle-thin";
 const LINE_THROUGH = "lineThrough";
@@ -17,18 +17,18 @@ let LIST, id;
 // get item from localstorage
 let data = localStorage.getItem("TODO");
 
-// check if data is not empty
+// check if data isnt empty
 if(data){
     LIST = JSON.parse(data);
-    id = LIST.length; // set the id to the last one in the list
-    loadList(LIST); // load the list to the user interface
+    id = LIST.length; // set the id to the last one
+    loadList(LIST); // load list to user interface
 }else{
-    // if data isn't empty
+    // if datas not empty
     LIST = [];
     id = 0;
 }
 
-// load items to the user's interface
+// load items to the user interface
 function loadList(array){
     array.forEach(function(item){
         addToDo(item.name, item.id, item.done, item.trash);
@@ -41,13 +41,13 @@ clear.addEventListener("click", function(){
     location.reload();
 });
 
-// Show todays date
+// Todays date
 const options = {weekday : "long", month:"short", day:"numeric"};
 const today = new Date();
 
 dateElement.innerHTML = today.toLocaleDateString("en-US", options);
 
-// add to do function
+// add a to do function
 
 function addToDo(toDo, id, done, trash){
 
@@ -68,7 +68,7 @@ function addToDo(toDo, id, done, trash){
     list.insertAdjacentHTML(position, item);
 }
 
-// add an item to the list user the enter key
+// add an item to the list using the enter key
 document.addEventListener("keyup",function(even){
     if(event.keyCode == 13){
         const toDo = input.value;
